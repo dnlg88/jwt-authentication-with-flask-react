@@ -5,3 +5,53 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+body {
+  background-color: rgb(245, 199, 169);
+}
+.navbar {
+  background-color: rgb(65, 21, 48);
+  color: white;
+}
+
+.actions {
+  display: flex;
+  min-width: 8rem;
+  justify-content: space-between;
+}
+.actions > a {
+  text-decoration: none;
+  color: white;
+}
+footer {
+  color: white;
+  background-color: rgb(209, 81, 45);
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    #ee7724,
+    #d8363a,
+    #dd3675,
+    #b44593
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}
