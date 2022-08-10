@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -26,20 +27,24 @@ export const Home = () => {
               Check out my login and sign-up pages
             </p>
             <p>
-              <a
-                href="#"
-                className="btn bg-success shadow-lg btn-round text-light btn-lg btn-rised"
-              >
-                Login
-              </a>
+              <Link to="/login">
+                <a
+                  href="#"
+                  className="btn bg-success shadow-lg btn-round text-light btn-lg btn-rised"
+                >
+                  Login
+                </a>
+              </Link>
             </p>
             <p>
-              <a
-                href="#"
-                className="btn bg-primary shadow-lg btn-round text-light btn-lg btn-rised"
-              >
-                Signup
-              </a>
+              <Link to="/signup">
+                <a
+                  href="#"
+                  className="btn bg-primary shadow-lg btn-round text-light btn-lg btn-rised"
+                >
+                  Signup
+                </a>
+              </Link>
             </p>
 
             <div className="btn-container-wrapper p-relative d-block  zindex-1">

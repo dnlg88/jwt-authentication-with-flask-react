@@ -19,7 +19,7 @@ export const Signup = (props) => {
       ></div>
 
       <div
-        className="card mx-4 mx-md-5 shadow-5-strong"
+        className="card mx-4 mx-md-5 mb-5 shadow-5-strong"
         style={{
           marginTop: "-100px",
           background: "hsla(0, 0%, 100%, 0.8)",
@@ -77,19 +77,6 @@ export const Signup = (props) => {
                   />
                   <label className="form-label" for="form3Example4">
                     Password
-                  </label>
-                </div>
-
-                <div className="form-check d-flex justify-content-center mb-4">
-                  <input
-                    className="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="form2Example33"
-                    checked
-                  />
-                  <label className="form-check-label" for="form2Example33">
-                    Subscribe to our newsletter
                   </label>
                 </div>
 

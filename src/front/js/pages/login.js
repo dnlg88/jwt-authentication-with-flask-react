@@ -1,10 +1,32 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { JavascriptModulesPlugin } from "webpack";
 
 import { Context } from "../store/appContext";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
+  const { email, setEmail } = useState("");
+  const { password, setPassword } = useState("");
+
+  const handleClick = () => {
+    const requestOptions = {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: [password],
+      }),
+    };
+    fetch(
+      "https://3001-dnlg88-jwtauthenticatio-amswopmg168.ws-eu59.gitpod.io/api/token",
+      requestOptions
+    )
+      .then()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <section
@@ -33,9 +55,10 @@ export const Login = () => {
                       <div className="form-outline mb-4">
                         <input
                           type="email"
-                          id="form2Example11"
+                          value={email}
                           class="form-control"
                           placeholder="Email"
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                         {/* <label className="form-label" for="form2Example11">
                           Username
@@ -45,9 +68,10 @@ export const Login = () => {
                       <div className="form-outline mb-4">
                         <input
                           type="password"
-                          id="form2Example22"
+                          value={password}
                           class="form-control"
                           placeholder="Password"
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
 
@@ -55,6 +79,7 @@ export const Login = () => {
                         <button
                           className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
                           type="button"
+                          onClick={handleClick}
                         >
                           Log in
                         </button>
