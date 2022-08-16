@@ -5,14 +5,20 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
 body {
-  background-color: rgb(245, 199, 169);
+  background-color: #e5e3c9;
+  margin: 0;
+  font-family: "Roboto Mono" monospace;
 }
 .navbar {
-  background-color: rgb(65, 21, 48);
+  background-color: #94b49f;
   color: white;
 }
-
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+}
 .actions {
   display: flex;
   min-width: 8rem;
@@ -22,36 +28,41 @@ body {
   text-decoration: none;
   color: white;
 }
-footer {
+.foot {
+  position: absolute;
+  bottom: 0%;
   color: white;
-  background-color: rgb(209, 81, 45);
+  background-color: #94b49f;
 }
 
-.gradient-custom-2 {
-  /* fallback for old browsers */
-  background: #fccb90;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(
-    to right,
-    #ee7724,
-    #d8363a,
-    #dd3675,
-    #b44593
-  );
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+.login {
+  height: 86vh;
 }
 
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
-  }
+.login > .row {
+  background-color: #b4cfb0;
+  border: #94b49f;
+  border-radius: 18px;
 }
-@media (min-width: 769px) {
-  .gradient-custom-2 {
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-  }
+
+.row > h1 {
+  background-color: #789395;
+  margin-top: -4%;
+}
+
+.button {
+  background-color: #94b49f;
+  padding: 2px 0px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 9px #999;
+}
+
+.button:active {
+  background-color: #789395;
+  box-shadow: 0 5px #666;
+  font-style: italic;
+  transform: translateY(4px);
 }
