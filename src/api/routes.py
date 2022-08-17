@@ -26,10 +26,10 @@ def handle_hello():
 #create token 
 @api.route('/token', methods=['POST'])
 def create_token():
-    email = request.json.get("email", None)                     #expected request body: {email: string, password: string}
+    username = request.json.get("username", None)                     #expected request body: {email: string, password: string}
     password = request.json.get("password", None)
-    if email != "test" or password != "test":
-        return jsonify({"msg": "Bad email or password"}), 401
+    if username != "test" or password != "test":
+        return jsonify({"msg": "Bad username or password"}), 401
 
-    access_token = create_access_token(identity=email)
+    access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token), 200

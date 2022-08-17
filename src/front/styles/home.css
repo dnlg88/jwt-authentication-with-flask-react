@@ -44,6 +44,15 @@ body {
   border: #94b49f;
   border-radius: 18px;
 }
+.signup {
+  height: 86vh;
+}
+
+.signup > .row {
+  background-color: #b4cfb0;
+  border: #94b49f;
+  border-radius: 18px;
+}
 
 .row > h1 {
   background-color: #789395;
