@@ -6,7 +6,13 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 
 export const Signup = (props) => {
   const { store, actions } = useContext(Context);
-  const params = useParams();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    actions.signup(username, password);
+    // actions.login(username, password);
+  };
 
   return (
     <div className="signup d-flex flex-column justify-content-center align-items-center">
@@ -14,23 +20,25 @@ export const Signup = (props) => {
         <h1 className="d-block mx-auto mb-3 py-2 fw-bold ">Signup</h1>
         <div className="row">
           <div className="col mb-3">
-            <input className="w-100" placeholder="Name" />
+            <input
+              className="w-100"
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </div>
           <div className="col mb-3">
-            <input className="w-100" placeholder="Last name" />
+            <input
+              className="w-100"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
         </div>
         <div className="row">
           <div className="col mb-3">
-            <input className="w-100" placeholder="Username" />
-          </div>
-          <div className="col mb-3">
-            <input className="w-100" placeholder="Password" />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col mb-3">
-            <a type="submit" className="w-50 button">
+            <a type="submit" onClick={handleSubmit} className="w-50 button">
               Signup
             </a>
           </div>

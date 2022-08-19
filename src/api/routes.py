@@ -23,13 +23,21 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-#create token 
+#create token for login
 @api.route('/token', methods=['POST'])
 def create_token():
-    username = request.json.get("username", None)                     #expected request body: {email: string, password: string}
-    password = request.json.get("password", None)
-    if username != "test" or password != "test":
-        return jsonify({"msg": "Bad username or password"}), 401
-
-    access_token = create_access_token(identity=username)
+    request_body = request.get_json()                     #expected request body: {username: string, password: string}
+    query = User.query.filter_by(username = request_body['username'], password = request_body['password']).first()
+    user = query.serialize()
+    access_token = create_access_token(identity=user['username'])
     return jsonify(access_token=access_token), 200
+ 
+#register new user
+@api.route('/signup', methods=['POST'])
+def sign_up():
+    request_body = request.get_json()                                                           #expected request body: {username: string, password: string}
+    new_user = User(username = request_body['username'], password = request_body['password'])
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify('User created'), 200
+

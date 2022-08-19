@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const resp = await fetch(
-            "https://3001-dnlg88-jwtauthenticatio-amswopmg168.ws-eu61.gitpod.io/api/token",
+            "https://3001-dnlg88-jwtauthenticatio-amswopmg168.ws-eu62.gitpod.io/api/token",
             opts
           );
           if (resp.status !== 200) {
@@ -44,7 +44,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const data = await resp.json();
           sessionStorage.setItem("token", data.access_token);
-          setStore(data.access_token);
+          setStore({ token: data.access_token });
+          window.location.reload();
           return true;
         } catch (error) {
           console.error(error);
@@ -62,6 +63,32 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(
           "message from useEffect, getting token from session storage"
         );
+      },
+      signup: async (username, password) => {
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        };
+        try {
+          resp = await fetch(
+            "https://3001-dnlg88-jwtauthenticatio-amswopmg168.ws-eu62.gitpod.io/api/signup",
+            opts
+          );
+          if (resp.status !== 200) {
+            new Error("there has been an error");
+            return false;
+          }
+          data = await resp.json();
+          return true;
+        } catch (error) {
+          console.error(error);
+        }
       },
     },
   };
