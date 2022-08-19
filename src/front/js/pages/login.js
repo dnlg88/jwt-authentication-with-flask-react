@@ -1,20 +1,17 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-// import { useHistory } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    actions.login(username, password);
+    const isLogged = actions.login(username, password);
+    if (isLogged) navigate("/");
   };
-
-  // if (store.token && store.token !== undefined && store.token !== "")
-  //   history.push("/");
 
   return (
     <div className="login d-flex flex-column justify-content-center align-items-center">

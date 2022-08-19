@@ -16,9 +16,14 @@ export const Navbar = () => {
               <a>Login</a>
             </Link>
           ) : (
-            <a href="#" onClick={actions.logout}>
-              Logout
-            </a>
+            <>
+              <a href="#" className="me-2" onClick={actions.logout}>
+                Logout
+              </a>
+              <Link to={"private"}>
+                <a className="me-2">Private</a>
+              </Link>
+            </>
           )}
           <Link to="/signup">
             <a>Signup</a>

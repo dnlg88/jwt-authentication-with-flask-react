@@ -75,3 +75,8 @@ body {
   font-style: italic;
   transform: translateY(4px);
 }
+.square {
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 30%;
+}

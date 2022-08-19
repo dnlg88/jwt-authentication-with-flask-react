@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
@@ -8,10 +8,12 @@ export const Signup = (props) => {
   const { store, actions } = useContext(Context);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
-    actions.signup(username, password);
-    // actions.login(username, password);
+    const isSigned = actions.signup(username, password);
+    const isLogged = actions.login(username, password);
+    if (isSigned && isLogged) navigate("/");
   };
 
   return (
