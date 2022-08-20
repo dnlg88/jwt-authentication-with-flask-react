@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const resp = await fetch(
-            "https://3001-dnlg88-jwtauthenticatio-amswopmg168.ws-eu62.gitpod.io/api/token",
+            process.env.BACKEND_URL + "/api/token",
             opts
           );
           if (resp.status !== 200) {
@@ -75,10 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }),
         };
         try {
-          resp = await fetch(
-            "https://3001-dnlg88-jwtauthenticatio-amswopmg168.ws-eu62.gitpod.io/api/signup",
-            opts
-          );
+          resp = await fetch(process.env.BACKEND_URL + "/api/signup", opts);
           if (resp.status !== 200) {
             new Error("there has been an error");
             return false;

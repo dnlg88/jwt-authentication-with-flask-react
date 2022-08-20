@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 
-export const Private = (props) => {
+export const Private = () => {
   const { store, actions } = useContext(Context);
-  const [isLogged, setisLogged] = useState(false);
   const navigate = useNavigate();
 
   return (
