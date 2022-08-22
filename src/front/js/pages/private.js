@@ -6,12 +6,19 @@ export const Private = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    actions.getTokenFromSession();
+  }, []);
   return (
     <>
-      {store.token === null ||
+      {!store.token ||
+      store.token === null ||
       store.token === "" ||
       store.token === undefined ? (
-        navigate("/login")
+        <img
+          className="square"
+          src="https://www.pngmart.com/files/7/Unauthorized-Sign-Transparent-Background.png"
+        />
       ) : (
         <img
           className="square"
